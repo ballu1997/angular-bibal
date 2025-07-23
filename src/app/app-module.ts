@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
+import { LifecycleDemo } from './lifecycle-demo/lifecycle-demo';
 
 @NgModule({
   declarations: [
-    App
+    App,
+    LifecycleDemo
   ],
   imports: [
     BrowserModule,

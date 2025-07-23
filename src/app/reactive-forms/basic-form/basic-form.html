@@ -1,0 +1,27 @@
+<div class="container mt-4">
+    <form [formGroup]="basicForm" (ngSubmit)="onSubmit()">
+        <div formArrayName="fields" class="d-flex flex-column gap-4">
+            <div *ngFor="let group of fields.controls; let i = index" [formGroupName]="i"
+                class="field-group d-flex align-items-end gap-3">
+                <div class="form-group">
+                    <label [attr.for]="'name-' + i">Name</label>
+                    <input class="form-control" [id]="'name-' + i" formControlName="name" placeholder="Enter name" />
+                </div>
+
+                <div class="form-group">
+                    <label [attr.for]="'email-' + i">Email</label>
+                    <input class="form-control" [id]="'email-' + i" formControlName="email" placeholder="Enter email" />
+                </div>
+
+                <button type="button" class="btn btn-outline-danger" (click)="removeField(i)" *ngIf="fields.length > 1">
+                    ❌
+                </button>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <button type="button" class="btn btn-outline-primary me-4" (click)="addField()">➕ Add More</button>
+            <button type="submit" class="btn btn-success">✅ Submit</button>
+        </div>
+    </form>
+</div>
